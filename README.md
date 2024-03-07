@@ -2,7 +2,7 @@
 
 ## Fetch
 - If [LFS](https://git-lfs.com) is available, just clone the Repository
-- Without LFS being installed, you can download the Repository as zip file and manually download `data/bbb_sunflower_1080p_30fps_normal.mp4` as raw file using the GitHub GUI
+- Without LFS being installed, you can download the Repository as zip file and manually download `data/bbb_sunflower_1080p_30fps_normal.mp4` as raw file using the GitHub GUI (and replace the placeholder/reference...)
 
 ## Run
 ### Docker Compose
