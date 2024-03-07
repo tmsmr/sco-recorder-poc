@@ -5,8 +5,8 @@ services:
       PYTHONUNBUFFERED: 1
       SOURCE_PATH: /data/bbb_sunflower_1080p_30fps_normal.mp4
       SOURCE_FPS: 30
-      SNAPSHOTS_BASEPATH: /data
-      SNAPSHOTS_HISTSIZE: 10
+      RECORDS_BASEPATH: /data
+      RECORDS_HISTSIZE: 10
     volumes:
       - ./data:/data
     ports:
