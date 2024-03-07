@@ -9,7 +9,7 @@ class RecorderConfig:
         fps = environ.var()
 
     @environ.config
-    class Snapshots:
+    class Records:
         basepath = environ.var()
         histsize = environ.var()
 
@@ -19,5 +19,5 @@ class RecorderConfig:
         port = environ.var("8080")
 
     source = environ.group(Source)
-    snapshots = environ.group(Snapshots)
+    records = environ.group(Records)
     listener = environ.group(Listener)

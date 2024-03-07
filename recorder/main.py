@@ -9,7 +9,7 @@ from services import MockCapture
 from models import *
 
 conf = RecorderConfig.from_environ(os.environ)
-capture = MockCapture(conf.source.path, int(conf.source.fps), int(conf.snapshots.histsize))
+capture = MockCapture(conf.source.path, int(conf.source.fps), int(conf.records.histsize))
 
 
 @asynccontextmanager
@@ -21,18 +21,18 @@ async def lifespan(_: FastAPI):
 api = FastAPI(lifespan=lifespan)
 
 
-def create_snapshot_bg(path: str, meta: SnapshotMeta):
+def create_record_bg(path: str, meta: Record):
     os.mkdir(path)
     capture.save(path)
     meta.save(path)
 
 
-@api.post("/api/snapshot")
-async def action(req: SnapshotReq, bg: BackgroundTasks):
-    resp = SnapshotResp(sid=uuid.uuid4(), ts=int(time.time() * 1000))
-    meta = SnapshotMeta(values=req, meta=resp)
-    path = os.path.join(conf.snapshots.basepath, str(resp.sid))
-    bg.add_task(create_snapshot_bg, path, meta)
+@api.post("/api/record")
+async def action(req: RecordReq, bg: BackgroundTasks):
+    resp = RecordResp(rid=uuid.uuid4(), ts=int(time.time() * 1000))
+    record = Record(values=req, meta=resp)
+    path = os.path.join(conf.records.basepath, str(resp.rid))
+    bg.add_task(create_record_bg, path, record)
     return resp
 
 

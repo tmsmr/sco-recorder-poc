@@ -3,10 +3,10 @@ from uuid import UUID
 from pydantic import BaseModel
 
 
-class SnapshotReq(BaseModel):
+class RecordReq(BaseModel):
     weight: float
 
 
-class SnapshotResp(BaseModel):
-    sid: UUID
+class RecordResp(BaseModel):
+    rid: UUID
     ts: int

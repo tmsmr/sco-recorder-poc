@@ -1,4 +1,4 @@
-POST http://localhost:8080/api/snapshot
+POST http://localhost:8080/api/record
 Content-Type: application/json
 
 {
