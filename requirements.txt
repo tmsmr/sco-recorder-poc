@@ -1,0 +1,4 @@
+environ-config
+opencv-python-headless
+uvicorn
+fastapi
