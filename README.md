@@ -9,6 +9,7 @@
 `docker compose up` should work without any modifications
 
 ### Docker
+- `docker build -t sco-recorder-poc .`
 e.g. `docker run --rm -ti -v $(pwd)/data:/data -p 127.0.0.1:8080:8080 -e SOURCE_PATH=/data/bbb_sunflower_1080p_30fps_normal.mp4 -e SOURCE_FPS=30 -e RECORDS_BASEPATH=/data -e RECORDS_HISTSIZE=10 sco-recorder-poc`
 
 ### Python (>= 3.10)
@@ -16,7 +17,6 @@ e.g. `docker run --rm -ti -v $(pwd)/data:/data -p 127.0.0.1:8080:8080 -e SOURCE_
 - e.g. `pushd recorder; SOURCE_PATH=../data/bbb_sunflower_1080p_30fps_normal.mp4 SOURCE_FPS=30 RECORDS_BASEPATH=../data RECORDS_HISTSIZE=10 python3 main.py || true; popd`
 
 ## Use
-
 ### Curl
 e.g. `curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"weight": 420}' localhost:8080/api/record | jq`
 
@@ -31,7 +31,7 @@ Since this is a PoC:
 - There are neither unit tests nor integration tests
 - There are basically no docs
 - Error handling is incomplete
-- Timing in `recorder/services/capture.py` is not synced with the provided source correctly
+- Timing in `recorder/services/capture.py` is not correctly synced with the provided source
 - Dependencies are not pinned to stable versions
 - ...
 
