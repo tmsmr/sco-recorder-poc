@@ -27,7 +27,7 @@ class MockCapture:
     def save(self, target):
         with self.__lock:
             for i, frame in enumerate(self.__frames):
-                imwrite(os.path.join(target, 'frame-{nr}.png'.format(nr=i)), frame)
+                imwrite(os.path.join(target, 'frame-{nr}.png'.format(nr=i + 1)), frame)
 
     def __worker(self):
         stream = VideoCapture(self.source)

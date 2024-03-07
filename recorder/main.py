@@ -29,7 +29,7 @@ def create_record_bg(path: str, meta: Record):
 
 @api.post("/api/record")
 async def action(req: RecordReq, bg: BackgroundTasks):
-    resp = RecordResp(rid=uuid.uuid4(), ts=int(time.time() * 1000))
+    resp = RecordResp(rid=uuid.uuid4(), ts=int(time.time() * 1000), frames=conf.records.histsize)
     record = Record(values=req, meta=resp)
     path = os.path.join(conf.records.basepath, str(resp.rid))
     bg.add_task(create_record_bg, path, record)

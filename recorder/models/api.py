@@ -10,3 +10,4 @@ class RecordReq(BaseModel):
 class RecordResp(BaseModel):
     rid: UUID
     ts: int
+    frames: int
