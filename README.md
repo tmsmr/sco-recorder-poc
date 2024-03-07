@@ -35,6 +35,9 @@ Since this is a PoC:
 - Dependencies are not pinned to stable versions
 - ...
 
+## Attributions
+Thanks https://github.com/blender for https://download.blender.org/peach/bigbuckbunny_movies/
+
 ## Other important notes
 If you ever want to check for valid seat arrangements in a theatre, you could use:
 ```python
