@@ -1,4 +1,5 @@
 environ-config
+pydantic
 opencv-python-headless
 uvicorn
 fastapi
